@@ -1,0 +1,4 @@
+flask
+tensorflow
+pretty_midi
+numpy

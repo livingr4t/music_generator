@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Generator</title>
+</head>
+<body>
+    <h1>Welcome to the Music Generator!</h1>
+    <form method="POST" action="/">
+        <label for="prompt">Enter your music prompt:</label><br>
+        <input type="text" id="prompt" name="prompt" placeholder="e.g. happy fast" required><br><br>
+
+        <label for="duration_seconds">Choose melody length (in seconds):</label><br>
+        <input type="number" id="duration_seconds" name="duration_seconds" value="30" min="10" max="300"><br><br>
+
+        <button type="submit">Generate Music</button>
+    </form>
+
+    {% if generated %}
+    <h2>Your music is ready!</h2>
+    <h3>Download your music:</h3>
+    <a href="/download" download>Click here to download the MIDI file</a>
+    {% elif error %}
+    <h2>Error:</h2>
+    <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
